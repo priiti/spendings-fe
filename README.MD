@@ -1,2 +1,8 @@
 ### 💰 Spendings management application
-Manage spendings.
+
+Manage spendings
+
+Stack:
+* React
+* Redux
+* Firebase
