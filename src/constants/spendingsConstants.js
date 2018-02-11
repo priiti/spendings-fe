@@ -1,0 +1,3 @@
+export const ADD_SPENDING = 'ADD_SPENDING';
+export const REMOVE_SPENDING = 'REMOVE_SPENDING';
+export const EDIT_SPENDING = 'EDIT_SPENDING';
