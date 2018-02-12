@@ -19,7 +19,6 @@ store.subscribe(() => {
 
 store.dispatch(addSpending({ description: 'Car bill', amount: 20000, createdAt: 1000 }));
 store.dispatch(addSpending({ description: 'Electricity bill', amount: 5000, createdAt: 3000 }));
-store.dispatch(setTextFilter('elec'));
 
 const root = (
   <Provider store={store}>
