@@ -1,8 +1,10 @@
 import React from 'react';
+import SpendingForm from './SpendingForm';
 
 const AddSpendingPage = () => (
   <div>
-    Add new spending
+    <h1>Add new spending</h1>
+    <SpendingForm />
   </div>
 );
 

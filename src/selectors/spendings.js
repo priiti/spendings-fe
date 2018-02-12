@@ -4,7 +4,7 @@
  * @param {any} filters Filters used on spendings
  * @returns Filtered spendings
  */
-const getVisibleSpendings = (spendings, filters) => {
+const getFilteredSpendings = (spendings, filters) => {
   const { text, sortBy, startDate, endDate } = filters;
   
   return spendings.filter((spending) => {
@@ -21,4 +21,4 @@ const getVisibleSpendings = (spendings, filters) => {
   });
 };
 
-export default getVisibleSpendings;
+export default getFilteredSpendings;

@@ -13,10 +13,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "moment": "^2.18.1",
     "nprogress": "^0.2.0",
     "react": "^16.0.0",
+    "react-addons-shallow-compare": "^15.6.0",
+    "react-dates": "^12.7.0",
     "react-dom": "^16.0.0",
     "react-modal": "^2.2.2",
+    "react-redux": "^5.0.5",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "uuid": "^3.1.0",
@@ -34,6 +38,7 @@
     "live-server": "^1.2.0",
     "node-sass": "^4.5.3",
     "normalize.css": "^7.0.0",
+    "prop-types": "^15.6.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "webpack": "^3.1.0",

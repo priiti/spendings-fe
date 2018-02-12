@@ -1,8 +1,6 @@
 import React from 'react';
 
-const EditPage = (props) => {
-  console.log(props);
-
+const EditSpendingPage = (props) => {
   return (
     <div>
       Editing expense with id {props.match.params.id} page
@@ -10,4 +8,4 @@ const EditPage = (props) => {
   );
 };
 
-export default EditPage;
+export default EditSpendingPage;

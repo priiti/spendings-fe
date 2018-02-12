@@ -11,10 +11,10 @@ const spendingsReducer = (state = spendingsReducerDefaultState, action) => {
     case ADD_SPENDING:
       return [...state, action.spending]
 
-    case EDIT_SPENDING:
+    case REMOVE_SPENDING:
       return state.filter((spending) => spending.id !== action.id);
 
-    case REMOVE_SPENDING:
+    case EDIT_SPENDING:
       return state.map((spending) => {
         if (spending.id === action.id)
           return {
