@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
+import Error from './Error';
 import 'react-dates/lib/css/_datepicker.css';
 
 class SpendingForm extends React.Component {
@@ -11,7 +12,8 @@ class SpendingForm extends React.Component {
       description: '',
       note: '',
       createdAt: moment(),
-      calendarFocused: false
+      calendarFocused: false,
+      error: undefined
     };
 
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
@@ -19,6 +21,7 @@ class SpendingForm extends React.Component {
     this.handleAmountChange = this.handleAmountChange.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
     this.handleCalendarFocusChange = this.handleCalendarFocusChange.bind(this);
+    this.handleOnSubmit = this.handleOnSubmit.bind(this);
   }
 
   handleDescriptionChange(e) {
@@ -34,23 +37,40 @@ class SpendingForm extends React.Component {
   handleAmountChange(e) {
     const amount = e.target.value;
     
-    if (amount.match(/^\d*(\.\d{0,2})?$/))
+    if (!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/))
       this.setState(() => ({ amount }));
   }
 
   handleDateChange(createdAt) {
-    this.setState(() => ({ createdAt }));
+    if (createdAt)
+      this.setState(() => ({ createdAt }));
   }
 
   handleCalendarFocusChange({ focused }) {
     this.setState(() => ({ calendarFocused: focused }));
   }
 
-  render() {
+  handleOnSubmit(e) {
+    e.preventDefault();
+    if (!this.state.description.trim() || !this.state.amount.trim()) {
+      const error = `Please provide 'description' and 'amount'`;
+      this.setState(() => ({ error }));
+    } else {
+      this.setState((prevState) => ({ error: undefined }));
+      this.props.addSpending({
+        description: this.state.description,
+        amount: parseFloat(this.state.amount, 10) * 100,
+        createdAt: this.state.createdAt.valueOf(),
+        note: this.state.note
+      });
+    }
+  }
 
+  render() {
     return (
       <div>
-        <form>
+        {this.state.error && <Error error={this.state.error} />}
+        <form onSubmit={this.handleOnSubmit}>
           <input 
             type="text" 
             placeholder="Description" 
