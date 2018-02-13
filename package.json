@@ -11,9 +11,11 @@
     "build:prod": "webpack -p --env production",
     "build-babel": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch",
     "dev-server": "webpack-dev-server",
+    "start": "node server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "express": "^4.16.2",
     "moment": "^2.18.1",
     "nprogress": "^0.2.0",
     "react": "^16.0.0",
