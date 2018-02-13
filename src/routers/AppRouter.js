@@ -5,7 +5,6 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from './../components/Header';
 import DashboardPage from './../components/DashboardPage';
 import AddSpendingPage from './../components/AddSpendingPage';
-import AddSpendingContainer from './../containers/AddSpendingContainer';
 import EditSpendingPage from './../components/EditSpendingPage';
 import HelpPage from './../components/Help';
 import NotFoundPage from './../components/NotFoundPage';
@@ -16,7 +15,7 @@ const AppRouter = () => (
       <Header />
       <Switch>
         <Route path="/" component={DashboardPage} exact/>
-        <Route path="/create" component={AddSpendingContainer}/>
+        <Route path="/create" component={AddSpendingPage}/>
         <Route path="/edit/:id" component={EditSpendingPage}/>
         <Route path="/help" component={HelpPage}/>
         <Route component={NotFoundPage} exact/>

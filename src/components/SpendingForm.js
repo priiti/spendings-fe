@@ -8,10 +8,10 @@ class SpendingForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      amount: '',
-      description: '',
-      note: '',
-      createdAt: moment(),
+      amount: props.spending ? props.spending.amount : '',
+      description: props.spending ? props.spending.description : '',
+      note: props.spending ? props.spending.note : '',
+      createdAt: props.spending ? moment(props.spending.createdAt) : moment(),
       calendarFocused: false,
       error: undefined
     };
@@ -52,12 +52,12 @@ class SpendingForm extends React.Component {
 
   handleOnSubmit(e) {
     e.preventDefault();
-    if (!this.state.description.trim() || !this.state.amount.trim()) {
+    if (!this.state.description || !this.state.amount) {
       const error = `Please provide 'description' and 'amount'`;
       this.setState(() => ({ error }));
     } else {
       this.setState((prevState) => ({ error: undefined }));
-      this.props.addSpending({
+      this.props.onSubmit({
         description: this.state.description,
         amount: parseFloat(this.state.amount, 10) * 100,
         createdAt: this.state.createdAt.valueOf(),

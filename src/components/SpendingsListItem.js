@@ -1,21 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SpendingsListItem = (props) => {
   const { 
     amount, 
     createdAt,
     description, 
-    id, 
-    removeSpending
+    id
   } = props;
 
   return (
     <div>
-      <h3>{description}</h3>
+      <Link to={`/edit/${id}`}>
+        <h3>{description}</h3>
+      </Link>
       <p>{amount}-{createdAt}</p>
-      <button onClick={() => {
-        removeSpending({ id })
-      }}>Remove</button>
     </div>
   );
 };

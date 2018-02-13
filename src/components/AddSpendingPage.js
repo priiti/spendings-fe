@@ -1,15 +1,29 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { addSpending } from './../actions/spendings';
 import SpendingForm from './SpendingForm';
 
-// NOT IN USE, CONSIDER DELETING
-
-const AddSpendingPage = () => (
+const AddSpendingPage = (props) => (
   <div>
     <h1>Add new spending</h1>
-    <SpendingForm onSubmit={(spending) => {
-      console.log(spending)
-    }} />
+    <SpendingForm
+      onSubmit={(spending) => {
+        props.addSpending(spending);
+        props.history.push('/');
+      }} 
+    />
   </div>
 );
 
-export default AddSpendingPage;
+const mapStateToProps = (state) => {
+  return {};
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    addSpending
+  }, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddSpendingPage);
