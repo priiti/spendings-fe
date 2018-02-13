@@ -14,6 +14,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "extract-text-webpack-plugin": "^3.0.0",
     "moment": "^2.18.1",
     "nprogress": "^0.2.0",
     "react": "^16.0.0",
