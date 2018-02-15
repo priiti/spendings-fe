@@ -1,10 +1,10 @@
 import React from 'react';
 import SpendingsList from './../components/SpendingsList';
-import SpendingsListFilters from './../components/SpendingsListFilters';
+import SpendingsListFiltersContainer from './../components/SpendingsListFiltersContainer';
 
 const DashboardPage = () => (
   <div>
-    <SpendingsListFilters />
+    <SpendingsListFiltersContainer />
     <SpendingsList />
   </div>
 );

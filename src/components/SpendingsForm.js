@@ -4,7 +4,7 @@ import { SingleDatePicker } from 'react-dates';
 import Error from './Error';
 import 'react-dates/lib/css/_datepicker.css';
 
-class SpendingForm extends React.Component {
+class SpendingsForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -104,4 +104,4 @@ class SpendingForm extends React.Component {
   }
 }
 
-export default SpendingForm;
+export default SpendingsForm;

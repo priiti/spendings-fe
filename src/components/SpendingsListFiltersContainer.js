@@ -10,7 +10,7 @@ import {
 } from './../actions/filters';
 import { DateRangePicker } from 'react-dates';
 
-class SpendingsListFilters extends React.Component {
+class SpendingsListFiltersContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -86,4 +86,4 @@ const mapDispatchToProps = (dispatch) => {
   }, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SpendingsListFilters);
+export default connect(mapStateToProps, mapDispatchToProps)(SpendingsListFiltersContainer);

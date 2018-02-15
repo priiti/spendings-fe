@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import SpendingForm from './../components/SpendingForm';
+import SpendingsForm from './../components/SpendingsForm';
 import { editSpending, removeSpending } from './../actions/spendings';
 
 const EditSpendingPage = (props) => {
@@ -9,7 +9,7 @@ const EditSpendingPage = (props) => {
   
   return (
     <div>
-      <SpendingForm
+      <SpendingsForm
         spending={props.spending}
         onSubmit={(spending) => {
           props.editSpending(id, spending);
