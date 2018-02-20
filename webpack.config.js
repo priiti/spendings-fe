@@ -20,6 +20,15 @@ module.exports = (env) => {
         },
         {
           test: /\.s?css$/,        
+          use: [
+            'style-loader',
+            'css-loader',
+            'sass-loader'
+          ]
+        }
+      ]
+    },
+    devtool: isProduction ? 'source-map' : 'cheap-module-eval-source-maps',
           use: CSSExtract.extract({
             use: [
               {
