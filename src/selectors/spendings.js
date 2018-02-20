@@ -1,3 +1,4 @@
+import moment from 'moment';
 /**
  * 
  * @param {any} spendings Current spendings which will be filtered
@@ -8,8 +9,11 @@ const getFilteredSpendings = (spendings, filters) => {
   const { text, sortBy, startDate, endDate } = filters;
   
   return spendings.filter((spending) => {
-    const startDateMatch = typeof startDate !== 'number' || spending.createdAt >= startDate;
-    const endDateMatch = typeof endDate !== 'number' || spending.createdAt <= endDate;
+    const createdAtMoment = moment(spending.createdAt);
+    // const startDateMatch = typeof startDate !== 'number' || spending.createdAt >= startDate;
+    // const endDateMatch = typeof endDate !== 'number' || spending.createdAt <= endDate;
+    const startDateMatch = startDate ? startDate.isSameOrBefore(createdAtMoment, 'day') : true;
+    const endDateMatch = endDate ? endDate.isSameOrAfter(createdAtMoment, 'day') : true;
     const textMatch = spending.description.toLowerCase().includes(text.toLowerCase());
 
     return startDateMatch && endDateMatch && textMatch;
