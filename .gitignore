@@ -6,7 +6,7 @@ npm-debug.log*
 # Dependency directories
 node_modules/
 
-# Public, bundle files
+# Public, bundle
 public/bundle.js
 public/bundle.js.map
 public/styles.css
