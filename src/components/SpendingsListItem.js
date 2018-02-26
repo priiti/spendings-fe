@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const SpendingsListItem = (props) => {
-  const { 
-    amount, 
+  const {
+    amount,
     createdAt,
-    description, 
+    description,
     id
   } = props;
 
