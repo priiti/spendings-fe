@@ -10,8 +10,6 @@ const getFilteredSpendings = (spendings, filters) => {
   
   return spendings.filter((spending) => {
     const createdAtMoment = moment(spending.createdAt);
-    // const startDateMatch = typeof startDate !== 'number' || spending.createdAt >= startDate;
-    // const endDateMatch = typeof endDate !== 'number' || spending.createdAt <= endDate;
     const startDateMatch = startDate ? startDate.isSameOrBefore(createdAtMoment, 'day') : true;
     const endDateMatch = endDate ? endDate.isSameOrAfter(createdAtMoment, 'day') : true;
     const textMatch = spending.description.toLowerCase().includes(text.toLowerCase());

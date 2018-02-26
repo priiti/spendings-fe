@@ -14,11 +14,8 @@ const store = configureStore();
 store.subscribe(() => {
   const state = store.getState();
   const filteredSpendings = getFilteredSpendings(state.spendings, state.filters);
-  console.log(filteredSpendings);
+  // console.log(filteredSpendings);
 })
-
-store.dispatch(addSpending({ description: 'Car bill', amount: 20000, createdAt: 1000 }));
-store.dispatch(addSpending({ description: 'Electricity bill', amount: 5000, createdAt: 3000 }));
 
 const root = (
   <Provider store={store}>
